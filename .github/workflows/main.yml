@@ -1,1 +1,58 @@
+name: News bot
 
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "normal, test (send a test message) or latest5 (post the 5 newest articles)"
+        type: choice
+        options: [normal, test, latest5]
+        default: normal
+
+permissions:
+  contents: write
+
+concurrency:
+  group: newsbot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          POST_DELAY_SECONDS: "3"
+          MODE: ${{ inputs.mode }}
+        run: |
+          if [ "$MODE" = "test" ]; then
+            python bot.py --test
+          elif [ "$MODE" = "latest5" ]; then
+            python bot.py --limit 5
+            python bot.py --seed
+          elif [ ! -f seen.db ]; then
+            python bot.py --seed
+          else
+            python bot.py --once
+          fi
+
+      - name: Save list of posted articles
+        run: |
+          git config user.name "newsbot"
+          git config user.email "newsbot@users.noreply.github.com"
+          if [ -f seen.db ]; then git add seen.db; fi
+          git diff --cached --quiet || (git commit -m "update seen articles" && git push)
