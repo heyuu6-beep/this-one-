@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "normal, test (send a test message) or latest5 (post the 5 newest articles)"
+        description: "normal, test (send a test message), latest5 (post the 5 newest articles) or check (list what each site returns, post nothing)"
         type: choice
-        options: [normal, test, latest5]
+        options: [normal, test, latest5, check]
         default: normal
 
 permissions:
@@ -41,7 +41,12 @@ jobs:
         run: |
           if [ "$MODE" = "test" ]; then
             python bot.py --test
+          elif [ "$MODE" = "check" ]; then
+            rm -f seen.db
+            python bot.py --dry-run
+            rm -f seen.db
           elif [ "$MODE" = "latest5" ]; then
+            rm -f seen.db
             python bot.py --limit 5
             python bot.py --seed
           elif [ ! -f seen.db ]; then
