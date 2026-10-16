@@ -1,0 +1,108 @@
+[
+  {
+    "name": "BBC Afaan Oromoo",
+    "type": "auto",
+    "url": "https://www.bbc.com/afaanoromoo",
+    "max_items": 3,
+    "enabled": true,
+    "feed_url": "https://feeds.bbci.co.uk/afaanoromoo/rss.xml"
+  },
+  {
+    "name": "VOA Afaan Oromoo",
+    "type": "auto",
+    "url": "https://www.voaafaanoromoo.com",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "DW Afaan Oromoo",
+    "type": "auto",
+    "url": "https://www.dw.com/om/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "FNN Media (Afaan Oromoo)",
+    "type": "auto",
+    "url": "https://fnnmedia.org/blog/category/afaan-oromoo/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "OMN",
+    "type": "auto",
+    "url": "https://omn.today/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "EBC Afaan Oromoo",
+    "type": "auto",
+    "url": "https://www.ebc.et/afanoromo",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "OBN",
+    "type": "auto",
+    "url": "https://obn.et/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Fana BC Afaan Oromoo",
+    "type": "auto",
+    "url": "https://fanabc.com/afaanoromoo/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Addis Standard Afaan Oromoo",
+    "type": "auto",
+    "url": "https://addisstandard.com/category/afaan-oromoo/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Walta Info Afaan Oromoo",
+    "type": "auto",
+    "url": "https://www.waltainfo.com/afaan-oromoo/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Oromic Ethiopian Today",
+    "type": "auto",
+    "url": "https://oromic.ethiopianstoday.com/category/oduu-addunyaa/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "SBS Oromo",
+    "type": "auto",
+    "url": "https://www.sbs.com.au/language/oromo",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Kelloo Media",
+    "type": "auto",
+    "url": "https://kelloomedia.com/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Sagalee Bilisummaa",
+    "type": "auto",
+    "url": "https://sagaleebilisoomaa.com/",
+    "max_items": 3,
+    "enabled": true
+  },
+  {
+    "name": "Odaa Media",
+    "type": "auto",
+    "url": "https://odaamedia.com/",
+    "max_items": 3,
+    "enabled": true
+  }
+]
